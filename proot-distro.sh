@@ -362,8 +362,8 @@ command_install() {
 		export DEX2OATBOOTCLASSPATH=${DEX2OATBOOTCLASSPATH-}
 		export EXTERNAL_STORAGE=${EXTERNAL_STORAGE-}
 		export LANG=C.UTF-8
-		export PATH=\${PATH}:/data/data/com.termux/files/usr/bin:/system/bin:/system/xbin
-		export PREFIX=${PREFIX-/data/data/com.termux/files/usr}
+		export PATH=\${PATH}:/data/data/io.neoterm/files/usr/bin:/system/bin:/system/xbin
+		export PREFIX=${PREFIX-/data/data/io.neoterm/files/usr}
 		export TERM=${TERM-xterm-256color}
 		export TMPDIR=/tmp
 		export PULSE_SERVER=127.0.0.1
@@ -1168,8 +1168,8 @@ command_login() {
 		# to Android and Termux so user can interact with host file system.
 		if ! $isolated_environment; then
 			set -- "--bind=/data/dalvik-cache" "$@"
-			set -- "--bind=/data/data/com.termux/cache" "$@"
-			set -- "--bind=/data/data/com.termux/files/home" "$@"
+			set -- "--bind=/data/data/io.neoterm/cache" "$@"
+			set -- "--bind=/data/data/io.neoterm/files/home" "$@"
 			set -- "--bind=/storage" "$@"
 			set -- "--bind=/storage/self/primary:/sdcard" "$@"
 		fi
@@ -1182,7 +1182,7 @@ command_login() {
 			if [ -e "/linkerconfig/ld.config.txt" ]; then
 				set -- "--bind=/linkerconfig/ld.config.txt" "$@"
 			fi
-			set -- "--bind=/data/data/com.termux/files/usr" "$@"
+			set -- "--bind=/data/data/io.neoterm/files/usr" "$@"
 			set -- "--bind=/system" "$@"
 			set -- "--bind=/vendor" "$@"
 			if [ -f "/plat_property_contexts" ]; then
@@ -1287,7 +1287,7 @@ command_login_help() {
 	msg
 	msg "  ${CYAN}* ${YELLOW}/apex ${CYAN}(only Android 10+)${RST}"
 	msg "  ${CYAN}* ${YELLOW}/data/dalvik-cache${RST}"
-	msg "  ${CYAN}* ${YELLOW}/data/data/com.termux${RST}"
+	msg "  ${CYAN}* ${YELLOW}/data/data/io.neoterm${RST}"
 	msg "  ${CYAN}* ${YELLOW}/sdcard${RST}"
 	msg "  ${CYAN}* ${YELLOW}/storage${RST}"
 	msg "  ${CYAN}* ${YELLOW}/system${RST}"
